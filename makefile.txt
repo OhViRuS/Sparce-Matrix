@@ -1,0 +1,31 @@
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
+
+MODULE = SparseMatrix.o
+DEMO = demo.exe
+TEST = test.exe
+
+all: $(MODULE) $(DEMO) $(TEST)
+
+$(MODULE): SparseMatrix.cpp SparseMatrix.h
+	$(CXX) $(CXXFLAGS) -c SparseMatrix.cpp -o $(MODULE)
+
+$(DEMO): demo.cpp $(MODULE)
+	$(CXX) $(CXXFLAGS) demo.cpp $(MODULE) -o $(DEMO)
+
+run_demo: $(DEMO)
+	$(DEMO)
+
+$(TEST): test.cpp $(MODULE)
+	$(CXX) $(CXXFLAGS) test.cpp $(MODULE) -o $(TEST)
+
+run_test: $(TEST)
+	$(TEST)
+
+clean:
+	if exist SparseMatrix.o del /Q SparseMatrix.o
+	if exist demo.exe del /Q demo.exe
+	if exist test.exe del /Q test.exe
+	if exist log.txt del /Q log.txt
+
+rebuild: clean all
