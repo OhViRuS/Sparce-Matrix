@@ -1,0 +1,49 @@
+SparseMatrix test run started.
+Creating matrix A with dimensions 4x5.
+A starts empty -> PASS
+A rows equal 4 -> PASS
+A columns equal 5 -> PASS
+A non-zero count is 0 -> PASS
+A string summary starts with dimensions -> PASS
+Inserting three non-zero cells into A.
+A is no longer empty -> PASS
+A non-zero count is 3 -> PASS
+Get existing value (0,0) -> PASS
+Get existing value (1,2) -> PASS
+Get missing value returns zero -> PASS
+operator[] counts stored value 8 -> PASS
+operator[] counts zeros correctly -> PASS
+Editing cells in A.
+Edited value now equals 6 -> PASS
+Second edited value now equals 2 -> PASS
+Removing one cell from A.
+Removed cell now reads as zero -> PASS
+Non-zero count dropped to 2 -> PASS
+Testing deep copy and assignment.
+Copied matrix equals original -> PASS
+Changing copy does not change original -> PASS
+Original still lacks new copied cell -> PASS
+Assigned matrix equals source -> PASS
+Assignment produced deep copy -> PASS
+Testing logical alignment of comparisons.
+a <= b matches (a < b || a == b) -> PASS
+b >= a matches !(b < a) -> PASS
+a != b matches !(a == b) -> PASS
+Exactly one of a<b, a==b, a>b is true -> PASS
+Testing exceptions.
+Inserting zero throws custom exception -> PASS
+Inserting duplicate position throws invalid_argument -> PASS
+Editing missing position throws invalid_argument -> PASS
+Deleting missing position throws invalid_argument -> PASS
+Out-of-bounds access throws out_of_range -> PASS
+Negative dimensions throw invalid_argument -> PASS
+Testing clear operation and operator!.
+operator! clears matrix A -> PASS
+A contains all zeros after clear -> PASS
+A non-zero count is zero after clear -> PASS
+Printing final summaries.
+A: 4x5 nz=0 entries=[]
+B: 4x5 nz=3 entries=[(0,4)=1; (1,2)=6; (3,4)=2]
+C: 4x5 nz=2 entries=[(1,2)=6; (3,4)=2]
+Tests passed: 34/34
+SparseMatrix test run finished.
